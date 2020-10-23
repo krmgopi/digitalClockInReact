@@ -7,10 +7,21 @@
   pointer-events: none;
 }
 
+h1 {
+  font-family: "Orbitron", sans-serif;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
 }
 
 .App-header {
@@ -34,5 +45,58 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.clock {
+  padding: 10px;
+  position: absolute;
+  left: 360px;
+  box-shadow: 1px 5px 5px 3px #41aea9;
+  color: #213e3b;
+  font-size: 4rem;
+  /* font-family: "Anton", sans-serif; */
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .clock {
+    top: 200px;
+    left: 140px;
+    font-size: 2rem;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    grid-gap: 3rem;
+  }
+
+  .container::after:not(:last-child) {
+    content: ":";
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .clock {
+    left: 140px;
+    font-size: 2rem;
+  }
+
+  .container {
+    grid-gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .clock {
+    top: 300px;
+    left: 300px;
+    font-size: 2rem;
+  }
+
+  .container {
+    grid-gap: 3rem;
   }
 }
